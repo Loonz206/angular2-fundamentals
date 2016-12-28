@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<div><app-simple-form></app-simple-form></div>'
+  template: '<div><ul><li *ngFor="let message of mail.messages">{{message}}</li></ul></div>'
 })
 export class AppComponent {
-  title = 'lets get started!';
+  constructor(
+    @Inject('mail') private mail
+  ){}
 }
